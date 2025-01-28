@@ -23,11 +23,11 @@ export default async function Page() {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-gray-500 to-indigo-700 py-8">
+        <div className="min-h-screen bg-gradient-to-r from-purple-500 to-indigo-700 py-8">
             <div className="container mx-auto p-4">
-                <h1 className="text-4xl font-bold text-center text-white mb-12">Movies</h1>
+                <h1 className="text-4xl font-bold text-center text-white mb-12">Trending Movies</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {movies.map((movie:any) => (
+                    {movies.map((movie: any) => (
                         <div 
                             key={movie.id} 
                             className="bg-white rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
