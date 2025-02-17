@@ -1,20 +1,20 @@
-"use client";
-import React, { useEffect, useState } from "react";
+"use client"
+import React, { useEffect, useState } from "react"
 
 interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  release_date: string;
+  id: number
+  title: string
+  overview: string
+  poster_path: string
+  release_date: string
 }
 
 const App: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [movies, setMovies] = useState<Movie[]>([])
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null)
 
   useEffect(() => {
-    const url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+    const url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
     const options = {
       method: "GET",
       headers: {
@@ -22,23 +22,23 @@ const App: React.FC = () => {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTkwMjllOTE4M2M0YjMwMGUxMDFhZDdmY2E0NjE3OCIsIm5iZiI6MTczODAzNTc3My4zNCwic3ViIjoiNjc5ODUyM2Q3MDJmNDkyZjQ3OGY2YmRmIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.WwcDFoA0xnDmj8IXCwIL_pietzONqFubhREgGeyNppg",
       },
-    };
+    }
 
     fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
-        setMovies(data.results || []);
+        setMovies(data.results || [])
       })
-      .catch((error) => console.error(error));
-  }, []);
+      .catch((error) => console.error(error))
+  }, [])
 
   const openPopup = (movie: Movie) => {
-    setSelectedMovie(movie);
-  };
+    setSelectedMovie(movie)
+  }
 
   const closePopup = () => {
-    setSelectedMovie(null);
-  };
+    setSelectedMovie(null)
+  }
 
   return (
     <div className="bg-purple-800 min-h-screen text-white">
@@ -90,7 +90,7 @@ const App: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
